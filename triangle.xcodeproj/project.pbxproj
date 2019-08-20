@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		838CF44822FEB0C00045A9D3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 838CF44722FEB0C00045A9D3 /* main.cpp */; };
+		83B8B29F230C21270095C585 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 83B8B29E230C21270095C585 /* glad.c */; };
+		83B8B2C3230C22110095C585 /* stb_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83B8B2C0230C22100095C585 /* stb_image.cpp */; };
 		83C181FB22FFE97500519D8B /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C181FA22FFE97500519D8B /* libGLEW.2.1.0.dylib */; };
 		83C181FD22FFE98F00519D8B /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C181FC22FFE98F00519D8B /* libglfw.3.3.dylib */; };
 		83C181FF22FFE99A00519D8B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C181FE22FFE99A00519D8B /* OpenGL.framework */; };
-		83C1822323000E0700519D8B /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 83C1822223000E0700519D8B /* glad.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,12 +30,46 @@
 /* Begin PBXFileReference section */
 		838CF44422FEB0C00045A9D3 /* triangle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = triangle; sourceTree = BUILT_PRODUCTS_DIR; };
 		838CF44722FEB0C00045A9D3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		83B8B29D230C21270095C585 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
+		83B8B29E230C21270095C585 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
+		83B8B2A2230C21620095C585 /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
+		83B8B2A3230C217E0095C585 /* integer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = integer.hpp; sourceTree = "<group>"; };
+		83B8B2A4230C217E0095C585 /* trigonometric.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = trigonometric.hpp; sourceTree = "<group>"; };
+		83B8B2A5230C217E0095C585 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		83B8B2A6230C217E0095C585 /* mat2x3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mat2x3.hpp; sourceTree = "<group>"; };
+		83B8B2A7230C217E0095C585 /* vec4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vec4.hpp; sourceTree = "<group>"; };
+		83B8B2A8230C217E0095C585 /* gtc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gtc; sourceTree = "<group>"; };
+		83B8B2A9230C217F0095C585 /* vec3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vec3.hpp; sourceTree = "<group>"; };
+		83B8B2AA230C217F0095C585 /* packing.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = packing.hpp; sourceTree = "<group>"; };
+		83B8B2AB230C217F0095C585 /* ext.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ext.hpp; sourceTree = "<group>"; };
+		83B8B2AC230C217F0095C585 /* mat2x2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mat2x2.hpp; sourceTree = "<group>"; };
+		83B8B2AD230C217F0095C585 /* mat2x4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mat2x4.hpp; sourceTree = "<group>"; };
+		83B8B2AE230C217F0095C585 /* glm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = glm.hpp; sourceTree = "<group>"; };
+		83B8B2AF230C217F0095C585 /* exponential.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = exponential.hpp; sourceTree = "<group>"; };
+		83B8B2B0230C217F0095C585 /* mat3x2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mat3x2.hpp; sourceTree = "<group>"; };
+		83B8B2B1230C217F0095C585 /* mat4x2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mat4x2.hpp; sourceTree = "<group>"; };
+		83B8B2B2230C217F0095C585 /* fwd.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = fwd.hpp; sourceTree = "<group>"; };
+		83B8B2B3230C217F0095C585 /* detail */ = {isa = PBXFileReference; lastKnownFileType = folder; path = detail; sourceTree = "<group>"; };
+		83B8B2B4230C217F0095C585 /* mat4x4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mat4x4.hpp; sourceTree = "<group>"; };
+		83B8B2B5230C217F0095C585 /* simd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = simd; sourceTree = "<group>"; };
+		83B8B2B6230C21800095C585 /* geometric.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = geometric.hpp; sourceTree = "<group>"; };
+		83B8B2B7230C21800095C585 /* mat4x3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mat4x3.hpp; sourceTree = "<group>"; };
+		83B8B2B8230C21800095C585 /* mat3x3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mat3x3.hpp; sourceTree = "<group>"; };
+		83B8B2B9230C21800095C585 /* vec2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vec2.hpp; sourceTree = "<group>"; };
+		83B8B2BA230C21800095C585 /* vector_relational.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vector_relational.hpp; sourceTree = "<group>"; };
+		83B8B2BB230C21800095C585 /* mat3x4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mat3x4.hpp; sourceTree = "<group>"; };
+		83B8B2BC230C21800095C585 /* gtx */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gtx; sourceTree = "<group>"; };
+		83B8B2BD230C21800095C585 /* common.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = common.hpp; sourceTree = "<group>"; };
+		83B8B2BE230C21810095C585 /* matrix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = matrix.hpp; sourceTree = "<group>"; };
+		83B8B2BF230C22100095C585 /* texture.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.fs; sourceTree = "<group>"; };
+		83B8B2C0230C22100095C585 /* stb_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stb_image.cpp; sourceTree = "<group>"; };
+		83B8B2C1230C22110095C585 /* texture.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.vs; sourceTree = "<group>"; };
+		83B8B2C2230C22110095C585 /* shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shader.h; sourceTree = "<group>"; };
+		83B8B2C4230C22510095C585 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		83B8B2C5230C22D30095C585 /* wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wall.jpg; sourceTree = "<group>"; };
 		83C181FA22FFE97500519D8B /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		83C181FC22FFE98F00519D8B /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/Cellar/glfw/3.3/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		83C181FE22FFE99A00519D8B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		83C1822123000DEC00519D8B /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
-		83C1822223000E0700519D8B /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
-		83C1822423000E5100519D8B /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +89,7 @@
 		838CF43B22FEB0C00045A9D3 = {
 			isa = PBXGroup;
 			children = (
+				83B8B2C4230C22510095C585 /* stb_image.h */,
 				838CF44622FEB0C00045A9D3 /* triangle */,
 				838CF44522FEB0C00045A9D3 /* Products */,
 				83C181F922FFE97500519D8B /* Frameworks */,
@@ -71,12 +107,69 @@
 		838CF44622FEB0C00045A9D3 /* triangle */ = {
 			isa = PBXGroup;
 			children = (
-				83C1822423000E5100519D8B /* khrplatform.h */,
-				83C1822223000E0700519D8B /* glad.c */,
-				83C1822123000DEC00519D8B /* glad.h */,
+				83B8B2C5230C22D30095C585 /* wall.jpg */,
+				83B8B2C2230C22110095C585 /* shader.h */,
+				83B8B2C0230C22100095C585 /* stb_image.cpp */,
+				83B8B2BF230C22100095C585 /* texture.fs */,
+				83B8B2C1230C22110095C585 /* texture.vs */,
+				83B8B2A1230C21520095C585 /* glm */,
+				83B8B2A0230C21340095C585 /* KHR */,
+				83B8B29C230C20D80095C585 /* glad */,
 				838CF44722FEB0C00045A9D3 /* main.cpp */,
 			);
 			path = triangle;
+			sourceTree = "<group>";
+		};
+		83B8B29C230C20D80095C585 /* glad */ = {
+			isa = PBXGroup;
+			children = (
+				83B8B29E230C21270095C585 /* glad.c */,
+				83B8B29D230C21270095C585 /* glad.h */,
+			);
+			path = glad;
+			sourceTree = "<group>";
+		};
+		83B8B2A0230C21340095C585 /* KHR */ = {
+			isa = PBXGroup;
+			children = (
+				83B8B2A2230C21620095C585 /* khrplatform.h */,
+			);
+			path = KHR;
+			sourceTree = "<group>";
+		};
+		83B8B2A1230C21520095C585 /* glm */ = {
+			isa = PBXGroup;
+			children = (
+				83B8B2A5230C217E0095C585 /* CMakeLists.txt */,
+				83B8B2BD230C21800095C585 /* common.hpp */,
+				83B8B2B3230C217F0095C585 /* detail */,
+				83B8B2AF230C217F0095C585 /* exponential.hpp */,
+				83B8B2AB230C217F0095C585 /* ext.hpp */,
+				83B8B2B2230C217F0095C585 /* fwd.hpp */,
+				83B8B2B6230C21800095C585 /* geometric.hpp */,
+				83B8B2AE230C217F0095C585 /* glm.hpp */,
+				83B8B2A8230C217E0095C585 /* gtc */,
+				83B8B2BC230C21800095C585 /* gtx */,
+				83B8B2A3230C217E0095C585 /* integer.hpp */,
+				83B8B2AC230C217F0095C585 /* mat2x2.hpp */,
+				83B8B2A6230C217E0095C585 /* mat2x3.hpp */,
+				83B8B2AD230C217F0095C585 /* mat2x4.hpp */,
+				83B8B2B0230C217F0095C585 /* mat3x2.hpp */,
+				83B8B2B8230C21800095C585 /* mat3x3.hpp */,
+				83B8B2BB230C21800095C585 /* mat3x4.hpp */,
+				83B8B2B1230C217F0095C585 /* mat4x2.hpp */,
+				83B8B2B7230C21800095C585 /* mat4x3.hpp */,
+				83B8B2B4230C217F0095C585 /* mat4x4.hpp */,
+				83B8B2BE230C21810095C585 /* matrix.hpp */,
+				83B8B2AA230C217F0095C585 /* packing.hpp */,
+				83B8B2B5230C217F0095C585 /* simd */,
+				83B8B2A4230C217E0095C585 /* trigonometric.hpp */,
+				83B8B2B9230C21800095C585 /* vec2.hpp */,
+				83B8B2A9230C217F0095C585 /* vec3.hpp */,
+				83B8B2A7230C217E0095C585 /* vec4.hpp */,
+				83B8B2BA230C21800095C585 /* vector_relational.hpp */,
+			);
+			path = glm;
 			sourceTree = "<group>";
 		};
 		83C181F922FFE97500519D8B /* Frameworks */ = {
@@ -145,8 +238,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83B8B2C3230C22110095C585 /* stb_image.cpp in Sources */,
 				838CF44822FEB0C00045A9D3 /* main.cpp in Sources */,
-				83C1822323000E0700519D8B /* glad.c in Sources */,
+				83B8B29F230C21270095C585 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +379,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B84XP83KZK;
+				HEADER_SEARCH_PATHS = (
+					"$(glew_header)",
+					"$(glfw_header)",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
@@ -299,6 +397,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B84XP83KZK;
+				HEADER_SEARCH_PATHS = (
+					"$(glew_header)",
+					"$(glfw_header)",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
