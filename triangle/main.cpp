@@ -3,6 +3,10 @@
 #include "stb_image.h"
 #include "shader.h"
 
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
+
 #include <iostream>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -48,54 +52,53 @@ int main()
     Shader ourShader("/Users/chris/Documents/opengl/test/test2/opengl-triangle/triangle/texture.vs", "/Users/chris/Documents/opengl/test/test2/opengl-triangle/triangle/texture.fs");
     
     
-    // ����ע������Ⱦ�����������
+    // ÒÔÏÂ×¢ÊÍÊÇäÖÈ¾¾ØÐÎËùÐè´úÂë
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
-    //float vertices[] = {
-    //    // positions        // colors            // texture coords
-    //     0.5f,  0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  1.0f, 1.0f ,// top right
-    //     0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  1.0f, 0.0f,// bottom right
-    //    -0.5f, -0.5f, 0.0f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f,// bottom left
-    //    -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,  0.0f, 1.0f// top left
-    //};
-    //unsigned int indices[] = {  // note that we start from 0!
-    //    0, 1, 3,  // first Triangle
-    //    1, 2, 3   // second Triangle
-    //};
+    float vertices[] = {
+        // positions        // texture coords
+        0.5f,  0.5f, 0.0f,  1.0f, 1.0f ,// top right
+        0.5f, -0.5f, 0.0f,  1.0f, 0.0f,// bottom right
+        -0.5f, -0.5f, 0.0f,  0.0f, 0.0f,// bottom left
+        -0.5f,  0.5f, 0.0f,  0.0f, 1.0f// top left
+    };
+    unsigned int indices[] = {  // note that we start from 0!
+        0, 1, 3,  // first Triangle
+        1, 2, 3   // second Triangle
+    };
     
-    float vertices[] = {    // ��Ⱦ���������������
-        -0.5f, -0.5f, 0.0f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f,        // ��Ⱦ�������������
-        0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  1.0f, 0.0f,        // ��Ⱦ�������������
-        0.0f,  0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  0.5f, 1.0f        // ��Ⱦ�������������
-    };        // ��Ⱦ�������������
+    //float vertices[] = {    // äÖÈ¾Èý½ÇÐÎÐÎËùÐè´úÂë
+    //    -0.5f, -0.5f, 0.0f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f,        // äÖÈ¾Èý½ÇÐÎËùÐè´úÂë
+    //     0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,  1.0f, 0.0f,        // äÖÈ¾Èý½ÇÐÎËùÐè´úÂë
+    //     0.0f,  0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  0.5f, 1.0f        // äÖÈ¾Èý½ÇÐÎËùÐè´úÂë
+    //};        // äÖÈ¾Èý½ÇÐÎËùÐè´úÂë
     
     unsigned int VBO, VAO, EBO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
-    //glGenBuffers(1, &EBO);    // ��Ⱦ�����������
+    glGenBuffers(1, &EBO);    // äÖÈ¾¾ØÐÎËùÐè´úÂë
     // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
     glBindVertexArray(VAO);
     
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     
-    //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);    // ��Ⱦ�����������
-    //glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);    // ��Ⱦ�����������
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);    // äÖÈ¾¾ØÐÎËùÐè´úÂë
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);    // äÖÈ¾¾ØÐÎËùÐè´úÂë
     
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
     
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
-    
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-    glEnableVertexAttribArray(2);
     
     // load and create a texture
     // -------------------------
-    unsigned int texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
+    unsigned int texture1, texture2;
+    // texture1
+    // --------
+    glGenTextures(1, &texture1);
+    glBindTexture(GL_TEXTURE_2D, texture1);
     // set the texture wrapping parameters
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -104,11 +107,11 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     // load image, create texture and generate mipmaps
     int width, height, nrChannels;
-    char *texturePath = "/Users/chris/Documents/opengl/test/test2/opengl-triangle/triangle/wall.jpg";
-    unsigned char *data = stbi_load(texturePath, &width, &height, &nrChannels, 0);
+    stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.
+    char *texture1Path = "/Users/chris/Documents/opengl/test/test2/opengl-triangle/triangle/wall.jpg";
+    unsigned char *data = stbi_load(texture1Path, &width, &height, &nrChannels, 0);
     if (data)
     {
-        std::cout << "data " <<data<< std::endl;
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     }
@@ -117,20 +120,36 @@ int main()
         std::cout << "Failed to load texture" << std::endl;
     }
     stbi_image_free(data);
+    // texture2
+    // --------
+    glGenTextures(1, &texture2);
+    glBindTexture(GL_TEXTURE_2D, texture2);
+    // set the texture wrapping parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // set texture filtering parameters
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    // load image, create texture and generate mipmaps
+    char *texture2Path = "/Users/chris/Documents/opengl/test/test2/opengl-triangle/triangle/face.png";
+    data = stbi_load(texture2Path, &width, &height, &nrChannels, 0);
+    if (data)
+    {
+        // note that the face.png has transpraency and thus  an alpha channel, so make sure to tell OpenGL the data type is of GL_RGBA
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        std::cout << "Failed to lad texture" << std::endl;
+    }
+    stbi_image_free(data);
     
-    // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
-    //glBindBuffer(GL_ARRAY_BUFFER, 0);
-    
-    // remember: do NOT unbind the EBO while a VAO is active as the bound element buffer object IS stored in the VAO; keep the EBO bound.
-    //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-    
-    // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
-    // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
-    //glBindVertexArray(0);
-    
-    
-    // uncomment this call to draw in wireframe polygons.
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    // tell opengl for each sampler to which texture unit it belongs to (only has to be done once)
+    // -------------------------------------------------------------------------------------------
+    ourShader.use();
+    ourShader.setInt("texture1", 0);
+    ourShader.setInt("texture2", 1);
     
     // render loop
     // -----------
@@ -145,16 +164,31 @@ int main()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        // draw our first triangle
+        // bind textures on corresponding texture units
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture1);
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, texture2);
+        
+        // create transformations
+        // Êµ¼Ê±ä»»Ë³ÐòºÍÔÄ¶ÁË³ÐòÏà·´£¬ÏÈÐý×ª£¬ÔÙÎ»ÒÆ
+        glm::mat4 transform;
+        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+        transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+        
+        // get matrix's uniform location and set matrix
         ourShader.use();
-        glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
-        //glDrawArrays(GL_TRIANGLES, 0, 6);
-        //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        // glBindVertexArray(0); // no need to unbind it every time
+        unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
+        /* parameter1£ºuniformµÄÎ»ÖÃÖµ£»
+         * parameter2£º¸æËßOpenGLÒª·¢ËÍ¶àÉÙ¸ö¾ØÕó
+         * parameter3£ºÑ¯ÎÊÊ¯·ð¶Ô¾ØÕó½øÐÐÖÃ»»£¬¼´½»»»ÐÐºÍÁÐ£¬GLMÖÐ²»ÐèÒªÖÃ»»£¬ÉèÖÃÎªGL_FALSE
+         * parameter4£º¾ØÕóÊý¾Ý¡£GLM²¢²»ÊÇ°Ñ¾ØÕó´æ´¢ÎªOpenGLÆÚÍû½ÓÊÜµÄÐÎÊ½£¬Òò´ËÒªÓÃGLM×Ô´øº¯Êý value_ptr ¶ÔÊý¾Ý½øÐÐ±ä»»
+         */
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
         
-        glDrawArrays(GL_TRIANGLES, 0, 3);    // ��Ⱦ�������������
-        
-        //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);    // ��Ⱦ�����������
+        // render container
+        glBindVertexArray(VAO);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
