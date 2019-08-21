@@ -45,7 +45,7 @@ int main()
     
     // build and compile our shader program
     // ------------------------------------
-    Shader ourShader("texture.vs", "texture.fs");
+    Shader ourShader("/Users/chris/Documents/opengl/test/test2/opengl-triangle/triangle/texture.vs", "/Users/chris/Documents/opengl/test/test2/opengl-triangle/triangle/texture.fs");
     
     
     // ����ע������Ⱦ�����������
@@ -104,10 +104,11 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     // load image, create texture and generate mipmaps
     int width, height, nrChannels;
-    char *texturePath = "wall.jpg";
+    char *texturePath = "/Users/chris/Documents/opengl/test/test2/opengl-triangle/triangle/wall.jpg";
     unsigned char *data = stbi_load(texturePath, &width, &height, &nrChannels, 0);
     if (data)
     {
+        std::cout << "data " <<data<< std::endl;
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     }
