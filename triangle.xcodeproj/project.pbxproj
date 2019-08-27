@@ -68,6 +68,9 @@
 		83B8B2C6230D68FB0095C585 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face.png; sourceTree = "<group>"; };
 		83B8B2C7230D6A0A0095C585 /* texture.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.fs; sourceTree = "<group>"; };
 		83B8B2C8230D6A0A0095C585 /* texture.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = texture.vs; sourceTree = "<group>"; };
+		83B8B2C923154B020095C585 /* coordinate.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = coordinate.fs; sourceTree = "<group>"; };
+		83B8B2CA23154B020095C585 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
+		83B8B2CB23154B020095C585 /* coordinate.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = coordinate.vs; sourceTree = "<group>"; };
 		83C181FA22FFE97500519D8B /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		83C181FC22FFE98F00519D8B /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/Cellar/glfw/3.3/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		83C181FE22FFE99A00519D8B /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -108,6 +111,9 @@
 		838CF44622FEB0C00045A9D3 /* triangle */ = {
 			isa = PBXGroup;
 			children = (
+				83B8B2CA23154B020095C585 /* camera.h */,
+				83B8B2C923154B020095C585 /* coordinate.fs */,
+				83B8B2CB23154B020095C585 /* coordinate.vs */,
 				83B8B2C7230D6A0A0095C585 /* texture.fs */,
 				83B8B2C8230D6A0A0095C585 /* texture.vs */,
 				83B8B2C6230D68FB0095C585 /* face.png */,
