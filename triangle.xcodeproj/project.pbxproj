@@ -77,6 +77,8 @@
 		83C7B32A231E8B5900BE7E14 /* lightSource.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = lightSource.fs; sourceTree = "<group>"; };
 		83C7B32B231E8B5900BE7E14 /* light.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = light.fs; sourceTree = "<group>"; };
 		83C7B32C231E8B5900BE7E14 /* shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shader.h; sourceTree = "<group>"; };
+		83EDC8B623266AFC0077AE3F /* lamp.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lamp.vs; sourceTree = "<group>"; };
+		83EDC8B723266B8F0077AE3F /* lamp.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = lamp.fs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,8 @@
 		838CF44622FEB0C00045A9D3 /* triangle */ = {
 			isa = PBXGroup;
 			children = (
+				83EDC8B723266B8F0077AE3F /* lamp.fs */,
+				83EDC8B623266AFC0077AE3F /* lamp.vs */,
 				83C7B32B231E8B5900BE7E14 /* light.fs */,
 				83C7B329231E8B5900BE7E14 /* light.vs */,
 				83C7B32A231E8B5900BE7E14 /* lightSource.fs */,
